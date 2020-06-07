@@ -19,15 +19,8 @@ public class Tracker {
     }
 
     public Item findById(String id) {
-        Item rsl = null;
-        for (int index = 0; index < position; index++) {
-            Item item = items[index];
-            if (item.getId().equals(id)) {
-                rsl = item;
-                break;
-            }
-        }
-        return rsl;
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
     }
 
     public Item[] findByName(String key) {
@@ -43,5 +36,27 @@ public class Tracker {
 
     public Item[] findAll() {
         return Arrays.copyOf(items, position);
+    }
+
+    public boolean replace(String id, Item item) {
+        boolean rst = false;
+        int index = indexOf(id);
+        if (index >= 0) {
+            item.setId(id);
+            items[index] = item;
+            rst = true;
+        }
+        return rst;
+    }
+
+    private int indexOf(String id) {
+        int rst = -1;
+        for (int i = 0; i < position; i++) {
+            if (items[i].getId().equals(id)) {
+                rst = i;
+                break;
+            }
+        }
+        return rst;
     }
 }

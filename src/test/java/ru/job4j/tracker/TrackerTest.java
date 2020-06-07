@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class TrackerTest {
@@ -32,5 +33,14 @@ public class TrackerTest {
         tracker.add(item2);
         Item[] rst = tracker.findAll();
         assertThat(rst[0].getName(), is(item1.getName()));
+    }
+    @Test
+    public void whenFirstItemReplaceOnSecondItem() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("test1");
+        Item item2 = new Item("test2");
+        tracker.add(item1);
+        boolean rst = tracker.replace(item1.getId(), item2);
+        assertThat(tracker.findById(item1.getId()).getName(), is(item2.getName()));
     }
 }

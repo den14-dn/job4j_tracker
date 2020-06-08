@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
@@ -42,5 +43,17 @@ public class TrackerTest {
         tracker.add(item1);
         boolean rst = tracker.replace(item1.getId(), item2);
         assertThat(tracker.findById(item1.getId()).getName(), is(item2.getName()));
+    }
+    @Test
+    public void whenDelete() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item("bug");
+        Item task = new Item("task");
+        tracker.add(bug);
+        tracker.add(task);
+        String id = bug.getId();
+        tracker.delete(id);
+//        assertThat(tracker.findById(id), is(nullValue()));
+        assertThat(tracker.findAll()[0].getName(), is(task.getName()));
     }
 }

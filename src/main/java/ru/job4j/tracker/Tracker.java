@@ -59,4 +59,12 @@ public class Tracker {
         }
         return rst;
     }
+
+    public boolean delete(String id) {
+        int index = indexOf(id);
+        System.arraycopy(items, index + 1, items, index, position - index);
+        position--;
+        items[position] = null;
+        return true;
+    }
 }

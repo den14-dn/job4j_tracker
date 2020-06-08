@@ -39,12 +39,11 @@ public class Tracker {
     }
 
     public boolean replace(String id, Item item) {
-        boolean rst = false;
         int index = indexOf(id);
-        if (index >= 0) {
+        boolean rst = (index != 1);
+        if (rst) {
             item.setId(id);
             items[index] = item;
-            rst = true;
         }
         return rst;
     }

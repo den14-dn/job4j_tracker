@@ -13,9 +13,10 @@ public class ReplaceAction implements UserAction {
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
             System.out.println("Редактирование успешно выполнено");
+            return true;
         } else {
             System.out.println("При редактировании произошла ошибка");
+            return false;
         }
-        return true;
     }
 }

@@ -14,11 +14,9 @@ public class Matches {
             int matches = Integer.parseInt(input.nextLine());
             if (matches < 1 || matches > 3 || matches > count) {
                 System.out.println("Необходимо ввести число от 1 до 3 и не больше остатка " + count);
-                continue;
-            }
-            count -= matches;
-            System.out.println("На столе осталось спичек: " + count);
-            if (count > 0) {
+            } else {
+                count -= matches;
+                System.out.println("На столе осталось спичек: " + count);
                 turn = !turn;
             }
         }

@@ -26,7 +26,7 @@ public class StartUI {
                 new CreateAction(),
                 new ShowAllAction(),
                 new EditAction(),
-                new DeleteItem(),
+                new DeleteAction(),
                 new FindByIdAction(),
                 new FindByNameAction(),
                 new ExitAction()

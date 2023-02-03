@@ -7,11 +7,16 @@ public class StartUITest {
 
     @Test
     public void whenAddItem() {
-        Input input = new StubInput(new String[]{"test"});
+        Input input = new StubInput(
+                new String[]{"0", "test", "1"}
+        );
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
+        UserAction[] actions = {
+                new CreateAction(),
+                new ExitAction()
+        };
+        new StartUI().init(input, tracker, actions);
         Item created = tracker.findAll()[0];
-        Item expected = new Item("test");
-        assertThat(created.getName()).isEqualTo(expected.getName());
+        assertThat(created.getName()).isEqualTo("test");
     }
 }

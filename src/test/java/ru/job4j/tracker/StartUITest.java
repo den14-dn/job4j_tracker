@@ -22,6 +22,23 @@ public class StartUITest {
     }
 
     @Test
+    public void whenDeleteItem() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("new item"));
+        Input input = new StubInput(
+                new String[]{"0", String.valueOf(item.getId()), "1"}
+        );
+        UserAction[] actions = {
+                new DeleteAction(output),
+                new ExitAction()
+        };
+        new StartUI(output).init(input, tracker, actions);
+        Item deletedItem = tracker.findById(item.getId());
+        assertThat(deletedItem).isNull();
+    }
+
+    @Test
     public void whenReplaceAction() {
         Output output = new StubOutput();
         Tracker tracker = new Tracker();

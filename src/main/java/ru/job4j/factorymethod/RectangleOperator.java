@@ -1,9 +1,9 @@
-package ru.job4j.factoryMethod;
+package ru.job4j.factorymethod;
 
 import java.util.Scanner;
 
 public class RectangleOperator extends ShapeOperator {
-    private Scanner input = new Scanner(System.in);
+    private final Scanner input = new Scanner(System.in);
 
     @Override
     public Shape createShape() {

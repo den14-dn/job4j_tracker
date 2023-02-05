@@ -1,4 +1,4 @@
-package ru.job4j.factoryMethod;
+package ru.job4j.factorymethod;
 
 public abstract class ShapeOperator {
     public void showInfo() {

@@ -1,9 +1,9 @@
-package ru.job4j.factoryMethod;
+package ru.job4j.factorymethod;
 
 import java.util.Scanner;
 
 public class Canvas {
-    private ShapeOperator shapeOperator;
+    private final ShapeOperator shapeOperator;
 
     public Canvas(ShapeOperator shapeOperator) {
         this.shapeOperator = shapeOperator;

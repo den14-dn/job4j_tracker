@@ -1,4 +1,4 @@
-package ru.job4j.factoryMethod;
+package ru.job4j.factorymethod;
 
 public class Rectangle implements Shape {
     private final int a;

@@ -1,4 +1,4 @@
-package ru.job4j.factoryMethod;
+package ru.job4j.factorymethod;
 
 public class Triangle implements Shape {
     private final int a;
@@ -13,7 +13,7 @@ public class Triangle implements Shape {
     public String draw() {
         String ln = System.lineSeparator();
         return "   *" + ln
-                + "  * *"+ ln
+                + "  * *" + ln
                 + " *   *" + ln
                 + "*******";
     }
